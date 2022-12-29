@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DAY-1(IP Q/A)</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+    }
+    body{
+        background-color: aqua;
+    }
+    h1{
+        font-weight: bold;
+        text-align: center;
+        background-color: black;
+        color: white;
+        height: 45px;
+        padding: 15px;
+    }
+    h5{
+        font-weight: bold;
+        color:yellowgreen;
+    }
+    p,li{
+        font-size: 18px;
+        color: white;
+    }
+    .container div{
+        margin: 20px 20px;
+        padding: 18px;
+        background-color: navy;
+        border-radius: 10px;
+        border: 2px dashed lightseagreen;
+    }
+    pre{
+        font-weight: bold;
+        font-size: 14px;
+        color: darkblue;
+        text-align: left;
+    }
+    table{
+        background-color: lawngreen;
+        border: 2px solid black;
+    }
+    th,td{
+        border-radius: 5px;
+        border: 1px solid black;
+        font-size: 18px;
+        text-align: center;
+    }
+    th{
+        background-color: aliceblue;
+    }
+    td{
+        background-color: beige;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>JS INTERVIEW Q/A DAY-1</h1>
+        <div>
+            <h3>1.Difference between “ == “ and “ === “ operators.</h3><br>
+            <p>Both are Comparsion operators and they return the boolean values as output.== is used to compare values where as === is used to compare values and it also checks its datatype.In Js == is called as "Loose equal to" and === is called as " Strict equal to".
+            Ex:
+            <pre>
+                var x="2"
+                var y=2
+                console.log(x==y);
+                console.log(x===y);
+            </pre></p>
+        </div>
+        <div>
+            <h3>2.What is the spread operator?</h3><br>
+            <p>In Js,Spread operator(...) allows us to destructure the non-Primitive datatypes like arrays,objects to access elements individually.
+             for Ex:
+             <pre> 
+                const arr1=[1,2,3]
+                const arr2=[4,5,6]
+                const arr=[...arr1,...arr2]
+                console.log(arr)
+            </pre>
+            </p>
+        </div>
+        <div>
+            <h3>3.What are the differences between var, let and const?</h3><br>
+           <table border="1">
+            <tr>
+                <th>var</th>
+                <th>let</th>
+                <th>const</th>
+            </tr>
+            <tr>
+                <td>1.It is a public identifier</td>
+                <td>1.It is a private identifier</td>
+                <td>1.It is a private identifier</td>
+            </tr>
+            <tr>
+                <td>2.It is globally scoped</td>
+                <td>2.It is block scoped</td>
+                <td>2.It is block scoped</td>
+            </tr>
+            <tr>
+                <td>3.It can be redeclared and reintialised.</td>
+                <td>3.It cannot be redeclared but can be reintialised.</td>
+                <td>3.It cannot be redeclared and reintialised.</td>
+            </tr>
+            <tr>
+                <td>4.It was introduced in Es5.</td>
+                <td>4.It was introduced in Es6.</td>
+                <td>4.It was introduced in Es6.</td>
+            </tr>
+            <tr>
+                <td>5.Ex: var a=10;</td>
+                <td>5.Ex: let a=10;</td>
+                <td>5.Ex: const a=10;</td>
+            </tr>
+           </table>
+        </div>
+        <div>
+            <h3>4.What is execution context</h3><br>
+            <p>Every Browser has a JS engine.For Example,Google has V8 engine,Internet Explorer has chakra engine and Mozilla firefox has Spider Monkey engine.etc... Js engine uses call stack and also creates a special environment to handle the execution of javascript code.This Environment is known as Execution Context.It contains the code that is curently running and everthing aids in execution.<br><br>During Execution specific code is parsed by the parser and the variables and functions are stored in memory,executeable byte code generated and the code gets executed.<br><br>In JS, we have two kinds of Execution context.<br>1.Global Execution context(GEC)<br><br>2.Function Execution context.(FEC)<br><br>The moment code gets executed GEC gets created and pushed into call stack.Inside GEC and FEC we have 2 phases namely.<br><br>1.Memory Allocation(creation phase)<br><br>2.Code execution(Execution phase)<br><br>In creation phase the memory gets allocated for variables and functions.<br><br><li>variables with var keyword gets memory allocated as undefined as it is global scoped.</li><li>variables with let and const keyword gets memory allocated as undefined as they are block scoped.</li><li>If we try to access the var variables before intialization then we get undefined.If we access let or const variables before intialization then we will get Reference error bcz they are block scoped and cannot be accesed without declaration.</li><li>In Execution phase functions get memory allocated as their actual value defined in code and in code execution variables get their actual value assigned to them and function will create FEC.the moment FEC gets created it will be pushed into call stack and once execution completed it gets removed from call stack and point of execution moved to GEC.</li></p>
+        </div>
+        <div>
+            <h3>5.What is meant by first class function?</h3><br>
+            <p>In any Programming language, when a function is treated as a variable then it is called as First class Function.For Example in such a language,<br><br><li>we can assign a function to a variable</li><br><li>We can pass a function as an argument in other functions.</li><br><li>returning a function</li><br><li>Arrow Functions etc..,Examples are:</li>
+            <pre>
+                1.Function to a variable:
+                let myfunction=function(){
+                    console.loh("hi");
+                }
+                myfunction();
+                2.function as a argument:
+                function greet(){
+                    console.log("Happy")
+                }
+                function specialgreet(callback,message){
+                    console.log(callback(),message)
+                }
+                specialgreet(grreet,"Christmas friend");
+
+                3.return a function:
+                function outer(){
+                    var x=10;
+                    function inner(){
+                        console.log(x);
+                    }
+                    return inner();
+                }
+                let out = outer();
+                console.log(out());
+            </pre>
+            </p>
+        </div>
+        <div>
+            <h3>6.What are closures? Give an example of closure</h3><br>
+            <p>clousure is a combination of a function enclosed with its surrounding state(lexical environment).(OR) A clousure gives you acccess to an outer function scope from an inner function.In js clousures are created every time when ever a function is created.
+            <pre>
+                function outer(){
+                    var x=10;
+                    function inner(){
+                        console.log(x);
+                    }
+                    return inner()
+                }
+                let out=outer()
+                console.log(out);
+            </pre>
+        </p>
+        </div>
+        <div>
+            <h3>7.Explain call(),apply(),and bind() methods?</h3><br>
+            <p>These three methods are used to invoke a function where we are supposed to pass an object as first argument.we can access the values of the object by using this keyword in function definition.<br><br>Call():Call()method invokes a function in which first argument will be a object and rest of the arguments required by function will be provided as an individual arguments.<br><br>
+            apply():apply() method invokes a function in which the first argument will be an object and rest of arguments will be passed as a array of elements.<br><br>bind():bind() method returns a new function and this function will be having a reference of object passed,now,where ever you wants to use this function in the code you can use it by passing the rest of arguments.
+            <pre>
+                var emp1={
+                    name:"sam",
+                    age:22
+                }
+                var emp2={
+                    name:"ram",
+                    age:24
+                }
+                function greeting(wish1,wish2){
+                    console.log(wish1+"this.name"+wish2)
+                }
+                greeting.call("Hello!","How are you!")
+            </pre><br>
+            <pre>
+                greeting.apply(emp2,("Good Morning!","Have some tea.."))
+            </pre><br>
+            <pre>
+                var grreting1=greeting.bind(emp1)
+                var grreting2=greeting.bind(emp2)
+                greeting1=("hi","how are you")
+                greeting2=("good nyt","go to sleep..")
+            </pre>
+
+        </p>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
